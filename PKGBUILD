@@ -4,7 +4,7 @@ _pkgname="helium"
 pkgname="${_pkgname}-browser-bin"
 _binaryname="helium-browser"
 pkgver=0.4.5.1
-pkgrel=2
+pkgrel=3
 pkgdesc="Private, fast, and honest web browser based on Chromium"
 arch=('x86_64')
 url="https://github.com/imputnet/helium-linux"
@@ -57,3 +57,4 @@ package() {
   install -dm755 "${pkgdir}/usr/bin"
   ln -s "/opt/${pkgname}/${_pkgname}.AppImage" "${pkgdir}/usr/bin/${_binaryname}"
 }
+
