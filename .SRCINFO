@@ -1,7 +1,7 @@
 pkgbase = helium-browser-bin
 	pkgdesc = Private, fast, and honest web browser based on Chromium
 	pkgver = 0.4.5.1
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/imputnet/helium-linux
 	arch = x86_64
 	license = GPL3
