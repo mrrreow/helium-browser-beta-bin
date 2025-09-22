@@ -8,7 +8,11 @@
 _pkgname="helium"
 pkgname="${_pkgname}-browser-bin"
 _binaryname="helium-browser"
+<<<<<<< HEAD
 pkgver=0.4.7.1
+=======
+pkgver=0.4.7.2
+>>>>>>> 996c5a6 (update: helium 0.4.7.2)
 _tarball="${_pkgname}-${pkgver}-x86_64_linux.tar.xz"
 pkgrel=1
 pkgdesc="Private, fast, and honest web browser based on Chromium"
@@ -29,20 +33,35 @@ source_x86_64=(
     "${_tarball}::https://github.com/imputnet/helium-linux/releases/download/${pkgver}/${_tarball}"
   "helium.desktop::https://raw.githubusercontent.com/imputnet/helium-linux/main/package/helium.desktop"
 )
+<<<<<<< HEAD
 sha256sums_x86_64=('1a475cacdfdc900dbaa905a476f5ae82e9d62a30af735b92c456dbc3171b44b2'
                    'e1d22a7fb8ce42d385416b9309abf293711bdc0d95d37e7ca4bbd24d2d27ba35')
+=======
+
+sha256sums_x86_64=('b8e1f57dffa7cf014a36b202359294654f978c9e912c380ebd2054d9ea2e4fc8'
+                   'cce8668c18d33077a585cb5d96522e5a02ae017a2baf800f8d7214ce6d05d3d2')
+>>>>>>> 996c5a6 (update: helium 0.4.7.2)
 prepare() {
   # Fix upstream desktop file to use the correct binary name and app name
   sed -i \
     -e 's/Exec=chromium/Exec=helium-browser/' \
     -e 's/Name=Helium$/Name=Helium Browser/' \
     -e 's/Icon=helium/Icon=helium-browser/' \
+<<<<<<< HEAD
     -e '/StartupNotify=/a\StartupWMClass=helium-browser' \
+=======
+>>>>>>> 996c5a6 (update: helium 0.4.7.2)
     "${srcdir}/helium.desktop"
 }
 package() {
   install -dm755 "${pkgdir}/opt/${pkgname}"
   cp -a "${srcdir}/${_pkgname}-${pkgver}-x86_64_linux/"* "${pkgdir}/opt/${pkgname}/"
+<<<<<<< HEAD
+=======
+  # Disable user-local desktop generation in chrome-wrapper
+  sed -i 's/exists_desktop_file || generate_desktop_file/true/' \
+    "$pkgdir/opt/${pkgname}/chrome-wrapper"
+>>>>>>> 996c5a6 (update: helium 0.4.7.2)
   # Install proper desktop file
   install -Dm644 "${srcdir}/helium.desktop" \
     "${pkgdir}/usr/share/applications/${_binaryname}.desktop"
@@ -51,11 +70,19 @@ package() {
     "${pkgdir}/usr/share/pixmaps/${_binaryname}.png"
   install -Dm644 "${pkgdir}/opt/${pkgname}/product_logo_256.png" \
     "${pkgdir}/usr/share/icons/hicolor/256x256/apps/${_binaryname}.png"
+<<<<<<< HEAD
   # Install a simple simple wrapper
   install -dm755 "${pkgdir}/usr/bin"
   cat > "${pkgdir}/usr/bin/${_binaryname}" << 'EOF'
 #!/bin/bash
 exec /opt/helium-browser-bin/chrome "$@"
+=======
+  # Install a simple wrapper
+  install -dm755 "${pkgdir}/usr/bin"
+  cat > "${pkgdir}/usr/bin/${_binaryname}" << 'EOF'
+#!/bin/bash
+exec /opt/helium-browser-bin/chrome-wrapper "$@"
+>>>>>>> 996c5a6 (update: helium 0.4.7.2)
 EOF
   chmod 755 "${pkgdir}/usr/bin/${_binaryname}"
 }
