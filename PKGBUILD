@@ -1,3 +1,4 @@
+# Maintainer: meow <aur at mreow full point org>
 # Maintainer: Sam Sinclair <sam at playleft dot com>
 # Contributor: Pujan Modha <pujan.pm@hotmail.com>
 # Contributor: init_harsh
@@ -7,11 +8,11 @@
 #  * SPDX-License-Identifier: 0BSD
 #  */
 _pkgname="helium"
-pkgname="${_pkgname}-browser-bin"
+pkgname="${_pkgname}-browser-beta-bin"
 _binaryname="helium-browser"
-pkgver=0.7.7.1
-pkgrel=2
-pkgdesc="Private, fast, and honest web browser based on Chromium"
+pkgver=0.7.9.1
+pkgrel=1
+pkgdesc="Private, fast, and honest web browser based on Chromium (pre-release)"
 arch=('x86_64' 'aarch64')
 url="https://github.com/imputnet/helium-linux"
 license=('GPL-3.0-only AND BSD-3-Clause')
@@ -25,6 +26,8 @@ optdepends=('pipewire: WebRTC desktop sharing under Wayland'
             'org.freedesktop.secrets: password storage backend on GNOME / Xfce'
             'kwallet: support for storing passwords in KWallet on Plasma'
             'upower: Battery Status API support')
+conflicts=('helium-browser-bin')
+provides=("helium-browser-bin=${pkgver}")
 source=($_binaryname.sh)
 source_x86_64=(
     "${_pkgname}-${pkgver}-x86_64_linux.tar.xz::https://github.com/imputnet/helium-linux/releases/download/${pkgver}/${_pkgname}-${pkgver}-x86_64_linux.tar.xz"
@@ -35,9 +38,9 @@ source_aarch64=(
     "LICENSE.ungoogled_chromium::https://raw.githubusercontent.com/imputnet/helium-linux/${pkgver}/LICENSE.ungoogled_chromium"
 )
 sha256sums=('09a0456f032b9a2cbfea73eb93356d6a1faceb2a11b608b560e00efa9e8bf78c')
-sha256sums_x86_64=('698f46c080cf4dcb249b9e4d96e4b2c640870ba76b77a05d05a358661af39511'
+sha256sums_x86_64=('fcd70bf1a0c0e52d33bee94a70fc33726a18f911decabefc4d9515aaff550236'
                    '9539b394e4179952698894bd62ef6566b6804ab0ff360dcf3a511cfaf7f78c4d')
-sha256sums_aarch64=('efa849d7dfdb1f3744d7ffe478617d8a66243073b2e951e9039e9bc44920c200'
+sha256sums_aarch64=('cef2f444ca261f31eb4e075b24183e1abac73e5b26a71d0886e2a0615816ccf0'
                     '9539b394e4179952698894bd62ef6566b6804ab0ff360dcf3a511cfaf7f78c4d')
 
 prepare() {
