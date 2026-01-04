@@ -8,7 +8,7 @@
 #  * SPDX-License-Identifier: 0BSD
 #  */
 _pkgname="helium"
-pkgname="${_pkgname}-browser-beta-bin"
+pkgname="${_pkgname}-browserbeta-bin"
 _binaryname="helium-browser"
 pkgver=0.7.9.1
 pkgrel=2
@@ -37,8 +37,8 @@ source_aarch64=("${_pkgname}-${pkgver}-arm64_linux.tar.xz::https://github.com/im
                 "${_pkgname}-${pkgver}-arm64_linux.tar.xz.asc::https://github.com/imputnet/helium-linux/releases/download/${pkgver}/${_pkgname}-${pkgver}-arm64_linux.tar.xz.asc"
                 "LICENSE.ungoogled_chromium::https://raw.githubusercontent.com/imputnet/helium-linux/${pkgver}/LICENSE.ungoogled_chromium")
 validpgpkeys=('BE677C1989D35EAB2C5F26C9351601AD01D6378E') # Helium <helium@imput.net>
-sha256sums=('3232eb325d4e6ec929d4050e7c44d2976acc82678b544ae459d2da0717b49538'
-            '1e9777e8b03cbdba142c29b30b51004492d77043f1f1ccb12f7c1f302e97a7bf')
+sha256sums=('ab41ebe29de90c0fd44d2059ed8a433d5cbf7f9a6e9db772abcd7db1c8c7abb5'
+            '3fb34e8e3e4cfeb9c54bee353f676283e3a2409653b608f5dc502b7a4c9e1c26')
 sha256sums_x86_64=('fcd70bf1a0c0e52d33bee94a70fc33726a18f911decabefc4d9515aaff550236'
                    'SKIP'
                    '9539b394e4179952698894bd62ef6566b6804ab0ff360dcf3a511cfaf7f78c4d')
